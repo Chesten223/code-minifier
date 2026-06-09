@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://code-minifier.pages.dev/sitemap.xml

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Minifier — JavaScript, CSS, HTML Minifier Free Online</title>
+<meta name="description" content="Free online code minifier for JavaScript, CSS, and HTML. Reduce file size, remove whitespace and comments. Instant minification and beautification.">
+<meta name="keywords" content="code minifier, javascript minifier, css minifier, html minifier, minify js, minify css, minify html, beautify code, online tool">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://code-minifier.pages.dev/">
+
+<meta property="og:title" content="Code Minifier — JavaScript, CSS, HTML Minifier Free Online">
+<meta property="og:description" content="Free online code minifier. Instantly minify and beautify JavaScript, CSS, and HTML. Reduce file size with one click.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://code-minifier.pages.dev/">
+<meta property="og:site_name" content="Code Minifier">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Code Minifier — Free Online JS, CSS, HTML Minifier">
+<meta name="twitter:description" content="Minify and beautify JavaScript, CSS, and HTML instantly. Free online tool.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Code Minifier",
+  "url": "https://code-minifier.pages.dev/",
+  "description": "Free online code minifier for JavaScript, CSS, and HTML. Reduce file size, remove whitespace and comments.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": ["JavaScript Minification", "CSS Minification", "HTML Minification", "Code Beautification"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is code minification?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Code minification removes unnecessary characters (whitespace, comments, line breaks) from source code without changing functionality, reducing file size and improving load times." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my code stored or sent to a server?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens locally in your browser. Your code never leaves your device." }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Code Minifier supports JavaScript, CSS, and HTML minification and beautification." }
+    }
+  ]
+}
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--accent2:#1f6feb;--green:#3fb950;--red:#f85149}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+header{border-bottom:1px solid var(--border);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.logo{font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+.logo span{color:var(--accent)}
+
+main{max-width:960px;margin:0 auto;padding:2rem 1.5rem}
+
+h1{font-size:2rem;margin-bottom:.5rem}
+.subtitle{color:var(--text2);margin-bottom:2rem;font-size:1.1rem}
+
+.toolbar{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+select,button{font-family:inherit;font-size:.9rem;border:1px solid var(--border);border-radius:6px;padding:.5rem 1rem;cursor:pointer;transition:all .15s}
+select{background:var(--surface);color:var(--text);min-width:140px}
+select:focus,button:focus{outline:2px solid var(--accent);outline-offset:2px}
+
+.btn-primary{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.btn-primary:hover{background:var(--accent)}
+.btn-secondary{background:var(--surface2);color:var(--text)}
+.btn-secondary:hover{background:var(--border)}
+.btn-danger{background:transparent;color:var(--red);border-color:var(--red)}
+.btn-danger:hover{background:var(--red);color:#fff}
+
+.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+@media(max-width:700px){.editor-grid{grid-template-columns:1fr}}
+
+.editor-pane{display:flex;flex-direction:column}
+.editor-pane label{font-size:.8rem;color:var(--text2);margin-bottom:.35rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+textarea{width:100%;min-height:320px;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:.75rem;font-family:'SF Mono',SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:.85rem;resize:vertical;line-height:1.5}
+textarea:focus{outline:none;border-color:var(--accent)}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
+.stat-card .value{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.stat-card .label{font-size:.8rem;color:var(--text2);margin-top:.25rem}
+
+.section-title{font-size:1.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-bottom:3rem}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem}
+.feature h3{margin-bottom:.5rem;font-size:1.1rem}
+.feature p{color:var(--text2);font-size:.9rem}
+
+.faq{margin-bottom:3rem}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:.75rem;overflow:hidden}
+.faq-q{padding:1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;background:var(--surface)}
+.faq-q:hover{background:var(--surface2)}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--text2);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{padding:0 1.25rem;max-height:0;overflow:hidden;transition:all .3s;color:var(--text2);font-size:.95rem}
+.faq-item.open .faq-a{padding:1rem 1.25rem;max-height:200px}
+
+.email-section{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:2rem;text-align:center;margin-bottom:3rem}
+.email-section h3{margin-bottom:.5rem}
+.email-section p{color:var(--text2);margin-bottom:1rem;font-size:.95rem}
+.email-form{display:flex;gap:.5rem;max-width:420px;margin:0 auto}
+.email-form input{flex:1;padding:.55rem .75rem;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.9rem}
+.email-form input:focus{outline:none;border-color:var(--accent)}
+.email-form button{white-space:nowrap}
+
+footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--text2);font-size:.85rem}
+
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#fff;padding:.75rem 1.25rem;border-radius:8px;font-weight:600;transform:translateY(100px);opacity:0;transition:all .3s;z-index:99}
+.toast.show{transform:translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">&lt;<span>/</span>&gt; Code Minifier</div>
+  <nav style="display:flex;gap:1.25rem;font-size:.9rem">
+    <a href="#features">Features</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Minify Your Code Instantly</h1>
+  <p class="subtitle">Free online tool to minify JavaScript, CSS, and HTML. Reduce file size, remove whitespace and comments — all in your browser.</p>
+
+  <div class="toolbar">
+    <select id="langSelect">
+      <option value="js">JavaScript</option>
+      <option value="css">CSS</option>
+      <option value="html">HTML</option>
+    </select>
+    <button class="btn-primary" id="btnMinify">Minify</button>
+    <button class="btn-secondary" id="btnBeautify">Beautify</button>
+    <button class="btn-secondary" id="btnCopy">Copy Output</button>
+    <button class="btn-danger" id="btnClear">Clear</button>
+  </div>
+
+  <div class="editor-grid">
+    <div class="editor-pane">
+      <label for="inputCode">Input</label>
+      <textarea id="inputCode" placeholder="Paste your code here..." spellcheck="false"></textarea>
+    </div>
+    <div class="editor-pane">
+      <label for="outputCode">Output</label>
+      <textarea id="outputCode" readonly spellcheck="false"></textarea>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="value" id="statOriginal">0 B</div><div class="label">Original Size</div></div>
+    <div class="stat-card"><div class="value" id="statMinified">0 B</div><div class="label">Minified Size</div></div>
+    <div class="stat-card"><div class="value" id="statSavings">0%</div><div class="label">Savings</div></div>
+  </div>
+
+  <section id="features">
+    <h2 class="section-title">Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Multi-Language Support</h3>
+        <p>Minify JavaScript, CSS, and HTML with language-aware optimizations tailored to each format.</p>
+      </div>
+      <div class="feature">
+        <h3>100% Client-Side</h3>
+        <p>Your code never leaves your browser. No uploads, no servers, no tracking. Complete privacy.</p>
+      </div>
+      <div class="feature">
+        <h3>Beautify &amp; Minify</h3>
+        <p>Switch between minified and readable output instantly. Perfect for debugging and production.</p>
+      </div>
+      <div class="feature">
+        <h3>Size Statistics</h3>
+        <p>See original size, minified size, and savings percentage in real time to measure optimization impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">What is code minification?</div>
+        <div class="faq-a">Code minification removes unnecessary characters — whitespace, comments, line breaks — from source code without changing its functionality. This reduces file size and improves page load times.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is my code stored or sent to a server?</div>
+        <div class="faq-a">No. All processing happens locally in your browser using JavaScript. Your code never leaves your device, ensuring complete privacy and security.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What languages are supported?</div>
+        <div class="faq-a">Code Minifier currently supports JavaScript (.js), CSS (.css), and HTML (.html) minification and beautification. More languages may be added in the future.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="email-section">
+    <h3>Stay Updated</h3>
+    <p>Get notified when we add new features, languages, and optimizations.</p>
+    <form class="email-form" id="emailForm">
+      <input type="email" placeholder="you@example.com" required>
+      <button type="submit" class="btn-primary">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Code Minifier. Free online tool. No data collected.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Helpers ──
+const $=s=>document.querySelector(s);
+const input=$('#inputCode'),output=$('#outputCode'),lang=$('#langSelect');
+const statOrig=$('#statOriginal'),statMin=$('#statMinified'),statSav=$('#statSavings');
+const toast=$('#toast');
+
+function fmt(n){return n<1024?n+' B':(n/1024).toFixed(1)+' KB'}
+function updateStats(orig,res){
+  statOrig.textContent=fmt(orig);
+  statMin.textContent=fmt(res);
+  const pct=orig?((orig-res)/orig*100).toFixed(1):0;
+  statSav.textContent=pct+'%';
+}
+function showToast(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2000)}
+
+// ── Minifiers ──
+function minifyJS(s){
+  // Remove single-line comments (but not URLs like http://)
+  s=s.replace(/([^:]|^)\/\/.*$/gm,'$1');
+  // Remove multi-line comments
+  s=s.replace(/\/\*[\s\S]*?\*\//g,'');
+  // Collapse whitespace around operators and punctuation
+  s=s.replace(/\s+/g,' ');
+  // Remove spaces around operators that are safe
+  s=s.replace(/\s*([{}()\[\];,:<>+\-*\/=%&|^~!?.])\s*/g,'$1');
+  // Restore necessary spaces: keywords before identifiers/numbers
+  const kw='var|let|const|return|typeof|instanceof|in|of|delete|void|new|throw|yield|await|async|function|class|extends|import|export|from|default|if|else|for|while|do|switch|case|break|continue|try|catch|finally|with|debugger|super|this|static|get|set';
+  s=s.replace(new RegExp('('+kw+')([a-zA-Z0-9_$])','g'),'$1 $2');
+  s=s.replace(new RegExp('([a-zA-Z0-9_$])('+kw+')','g'),'$1 $2');
+  // Restore return followed by +/-( to avoid confusion with ++/--
+  s=s.replace(/return\s*([+\-])/g,'return $1');
+  return s.trim();
+}
+
+function minifyCSS(s){
+  // Remove comments
+  s=s.replace(/\/\*[\s\S]*?\*\//g,'');
+  // Collapse whitespace
+  s=s.replace(/\s+/g,' ');
+  // Remove spaces around { } : ; , > + ~
+  s=s.replace(/\s*([{}:;,>+~])\s*/g,'$1');
+  // Remove trailing semicolons before }
+  s=s.replace(/;}/g,'}');
+  // Remove leading/trailing spaces
+  return s.trim();
+}
+
+function minifyHTML(s){
+  // Remove comments (but not conditional IE comments)
+  s=s.replace(/<!--(?!\[if)[\s\S]*?-->/g,'');
+  // Collapse whitespace between tags
+  s=s.replace(/\s+/g,' ');
+  // Remove spaces around tags
+  s=s.replace(/>\s+</g,'><');
+  // Remove optional quotes on simple attribute values
+  s=s.replace(/="([^"\s=<>`]+)"/g,'=$1');
+  // Remove spaces before >
+  s=s.replace(/\s+>/g,'>');
+  return s.trim();
+}
+
+// ── Beautifiers ──
+function beautifyJS(s,indent='  '){
+  // Normalize semicolons and braces for re-indentation
+  s=s.replace(/;/g,';\n').replace(/\{/g,'{\n').replace(/\}/g,'\n}\n');
+  const lines=s.split('\n');
+  let level=0,res=[];
+  for(let line of lines){
+    line=line.trim();
+    if(!line)continue;
+    if(line.startsWith('}'))level=Math.max(0,level-1);
+    res.push(indent.repeat(level)+line);
+    if(line.endsWith('{'))level++;
+  }
+  return res.join('\n');
+}
+
+function beautifyCSS(s,indent='  '){
+  s=s.replace(/\{/g,'{\n').replace(/\}/g,'\n}\n').replace(/;/g,';\n');
+  const lines=s.split('\n');
+  let level=0,res=[];
+  for(let line of lines){
+    line=line.trim();
+    if(!line)continue;
+    if(line==='}')level=Math.max(0,level-1);
+    res.push(indent.repeat(level)+line);
+    if(line.endsWith('{'))level++;
+  }
+  return res.join('\n');
+}
+
+function beautifyHTML(s,indent='  '){
+  s=s.replace(/>/g,'>\n').replace(/</g,'\n<');
+  const lines=s.split('\n');
+  const selfClosing=new Set(['br','hr','img','input','meta','link','area','base','col','embed','source','track','wbr']);
+  let level=0,res=[];
+  for(let line of lines){
+    line=line.trim();
+    if(!line)continue;
+    const isClose=/^<\//.test(line);
+    const tagMatch=line.match(/^<(\w+)/);
+    const tag=tagMatch?tagMatch[1].toLowerCase():'';
+    if(isClose)level=Math.max(0,level-1);
+    res.push(indent.repeat(level)+line);
+    if(!isClose&&!selfClosing.has(tag)&&!line.endsWith('/>')&&!line.includes('</'))level++;
+  }
+  return res.join('\n');
+}
+
+// ── Actions ──
+$('#btnMinify').addEventListener('click',()=>{
+  const code=input.value;if(!code){showToast('Paste code first');return}
+  const langVal=lang.value;
+  const result=langVal==='js'?minifyJS(code):langVal==='css'?minifyCSS(code):minifyHTML(code);
+  output.value=result;
+  updateStats(new Blob([code]).size,new Blob([result]).size);
+  showToast('Minified!');
+});
+
+$('#btnBeautify').addEventListener('click',()=>{
+  const code=input.value;if(!code){showToast('Paste code first');return}
+  const langVal=lang.value;
+  const result=langVal==='js'?beautifyJS(code):langVal==='css'?beautifyCSS(code):beautifyHTML(code);
+  output.value=result;
+  updateStats(new Blob([code]).size,new Blob([result]).size);
+  showToast('Beautified!');
+});
+
+$('#btnCopy').addEventListener('click',()=>{
+  if(!output.value){showToast('Nothing to copy');return}
+  navigator.clipboard.writeText(output.value).then(()=>showToast('Copied to clipboard!'));
+});
+
+$('#btnClear').addEventListener('click',()=>{
+  input.value='';output.value='';
+  updateStats(0,0);
+  showToast('Cleared');
+});
+
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+// Email form
+$('#emailForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  showToast('Thanks for subscribing!');
+  e.target.reset();
+});
+</script>
+</body>
+</html>
